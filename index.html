@@ -32,41 +32,50 @@
         function playRound(humanChoice,computerChoice) {
                 if(humanChoice==="rock") {
                     if(computerChoice==="rock") {
-                        console.log("It's a draw.");
+                        //console.log("It's a draw.");
+                        document.write("<br>It's a draw.");
                     }
                     else if(computerChoice==="paper") {
-                        console.log("Paper beats rock. Computer wins.");
+                        //console.log("Paper beats rock. Computer wins.");
+                        document.write("<br>Paper beats rock. Computer wins.");
                         computerScore++;
                     }
                     else if(computerChoice==="scissors"){
-                        console.log("Rock beats scissors. You win!");
+                        //console.log("Rock beats scissors. You win!");
+                        document.write("<br>Rock beats scissors. You win!");
                         humanScore++;
                     }
                 }
                 if(humanChoice==="paper") {
                     if(computerChoice==="rock") {
-                        console.log("Paper beats rock. You win!");
+                        //console.log("Paper beats rock. You win!");
+                        document.write("<br>Paper beats rock. You win!");
                         humanScore++;
                     }
                     else if(computerChoice==="paper") {
-                        console.log("It's a draw.");
+                        document.write("<br>It's a draw.");
+                        //console.log("It's a draw.");
                     }
                     else if(computerChoice==="scissors"){
-                        console.log("Scissors beat paper. Computer wins.");
+                        //console.log("Scissors beat paper. Computer wins.");
+                        document.write("<br>Scissors beat paper. Computer wins.");
                         computerScore++;
                     }
                 }
                 if(humanChoice==="scissors") {
                     if(computerChoice==="rock") {
-                        console.log("Rock beats scissors. Computer wins.");
+                        //console.log("Rock beats scissors. Computer wins.");
+                        document.write("<br>Rock beats scissors. Computer wins.");
                         computerScore++;
                     }
                     else if(computerChoice==="paper") {
-                        console.log("Scissors beat paper. You win!");
+                        //console.log("Scissors beat paper. You win!");
+                        document.write("<br>Scissors beat paper. You win!");
                         humanScore;
                     }
                     else if(computerChoice==="scissors"){
-                        console.log("It's a draw.");
+                        //console.log("It's a draw.");
+                        document.write("<br>It's a draw.");
                 }
 
             }
@@ -76,28 +85,40 @@
     }
 
         function playGame() {
-            for(let i =1;i<=5;i++) {
+            for(let i =1;i<=3;i++) {
                 getComputerChoice();
                 getHumanChoice();
                 console.log("Round ",i.toString());
+                if(i===1){
+                    document.write("Round 1");
+                }
+                else document.write("<br><br>----------<br>Round",i.toString());
                 if(humanChoice==="rock"||humanChoice==="paper"||humanChoice==="scissors") {
-                    console.log("You chose ",humanChoice);
+                    console.log("<You chose ",humanChoice);
+                    document.write("<br>You chose ",humanChoice);
                     console.log("The computer chose ",computerChoice);
+                    document.write("<br>The computer chose ",computerChoice);
                     playRound(humanChoice,computerChoice);
                     //console.log(humanScore,computerScore);
                 }
                 else {
                     i--;
                     console.log("Invalid input. Round aborted.");
+                    document.write("<br>Invalid input. Round aborted.<br><br>");
                 }
             }
             if(computerScore>humanScore){
                 console.log(humanScore.toString(),computerScore.toString(),"\nYou lost to the computer.");
+                document.write("<br>------------------------<br>OUTCOME<br><br>You:",humanScore.toString(),"|    | Computer:",computerScore.toString(),"<br>You lost to the computer.");
             }
             if(computerScore===humanScore){
-                console.log(humanScore.toString(),"||",computerScore.toString(),"\nIt's a draw");
+                console.log(humanScore.toString(),"|---|",computerScore.toString(),"\nIt's a draw");
+                document.write("<br>------------------------<br>OUTCOME<br><br>You:",humanScore.toString(),"|   | Computer:",computerScore.toString(),"<br>It's a draw");
             }
-            else console.log(humanScore.toString(),"||",computerScore.toString(),"\nYou won!");
+            else {
+                console.log(humanScore.toString(),"|---|",computerScore.toString(),"\nYou won!");
+                document.write("<br>------------------------<br>OUTCOME<br><br>You:",humanScore.toString(),"|   | Computer:",computerScore.toString(),"<br>You won!");
+            }
         }
 
         playGame();
